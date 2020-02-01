@@ -7,13 +7,13 @@ public class lexicographyBubble {
     {
         String temp;
         for (int j = 0; j < str.length; j++) {
-        	   for (int i = j + 1; i < str.length; i++) {
-        		   if (str[i].compareToIgnoreCase(str[j]) < 0) {
-        			   temp = str[j];
-        			   str[j] = str[i];
-        			   str[i] = temp;
-        		   }
-        	   }
+        	for (int i = j + 1; i < str.length; i++) {
+        		if (str[i].compareToIgnoreCase(str[j]) < 0) {
+        			temp = str[j];
+        			str[j] = str[i];
+        			str[i] = temp;
+        		   	}
+        	}
         }
         return str; 	
     }
