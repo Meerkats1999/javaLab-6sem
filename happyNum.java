@@ -1,45 +1,43 @@
 package meerkats;
 import java.util.Scanner;
-import java.lang.Math;
 
 public class happyNum {
-	int sum=0;
-	
-	int proceed(int sum) {
-		
-		int fin=0;
-		String temp=Integer.toString(sum);
-		int len=temp.length();
 
-			for(int i=0;i<len;i++)
-			{
-				
-				System.out.println("1 : " +(int)Math.pow(sum%10,2));
-				fin=fin+(int)Math.pow(sum%10,2);
-				sum=sum/10;
-			}
-			sum=fin;
-			return sum;
-	}
+	static int numSquareSum(int n) 
+	{ 
+	    int squareSum = 0; 
+	    while (n!= 0) 
+	    { 
+	        squareSum += (n % 10) * (n % 10); 
+	        n = n/10;
+	    } 
+	    return squareSum; 
+	} 
 	
-	public static void main(String[] args) {
-		
-		Scanner in=new Scanner(System.in);
-		System.out.print("Enter num: ");
-		int num=(int)Math.pow(in.nextInt(), 2);
-		System.out.println(num);
-		happyNum p=new happyNum();
-		while(num>9)
-		{
-			System.out.println(p.proceed(num));
-			num=p.proceed(num);
-		}
-		if(num==1)
-			System.out.println("Happy");
-		else
-			System.out.println("Unhappy");
-		
-		in.close();
-	}
-	
-}
+	static boolean isHappynumber(int n) 
+	{ 
+	    int firstNum, secondNum; 
+	    firstNum = secondNum = n; 
+	    do
+	    { 
+	        firstNum = numSquareSum(firstNum); 
+	        System.out.println(firstNum);
+	        secondNum = numSquareSum(numSquareSum(secondNum));
+	   
+	    } 
+	    while (firstNum != secondNum); 
+	    return (firstNum == 1); 
+	} 
+	   
+	public static void main(String[] args) 
+	{ 
+		Scanner in = new Scanner(System.in);
+		System.out.print("Enter nmuber: ");
+		int n = in.nextInt();
+	    if (isHappynumber(n)) 
+	        System.out.println("Happy"); 
+	    else
+	        System.out.println("Unhappy");
+	    in.close();
+	} 
+} 
