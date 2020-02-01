@@ -1,3 +1,5 @@
+//Not Lab Program
+
 package meerkats;
 import java.util.Scanner;
 
